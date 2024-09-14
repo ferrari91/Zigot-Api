@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>Zigot_Api</RootNamespace>
+    <UserSecretsId>c45a6fd3-eb25-4177-8aef-afe845485cbe</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="GraphQL.Server.Transports.AspNetCore" Version="5.1.1" />
+    <PackageReference Include="GraphQL.Server.Transports.AspNetCore.SystemTextJson" Version="5.1.1" />
+    <PackageReference Include="GraphQL.Server.Ui.Playground" Version="5.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.8">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="8.0.8" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.6" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.4" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL.Design" Version="1.1.0" />
+    <PackageReference Include="Swashbuckle" Version="5.6.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.7.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.7.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Zigot.Core.Application.CommandStack\Zigot.Core.Application.CommandStack.csproj" />
+    <ProjectReference Include="..\Zigot.Core.Application.QueryStack\Zigot.Core.Application.QueryStack.csproj" />
+    <ProjectReference Include="..\Zigot.Core.Domain\Zigot.Core.Domain.csproj" />
+    <ProjectReference Include="..\Zigot.Infrastructure.Identify\Zigot.Infrastructure.Identity.csproj" />
+    <ProjectReference Include="..\Zigot.Infrastructure.Persistence\Zigot.Infrastructure.Persistence.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="RabbitMq">
+      <HintPath>..\Package\RabbitMq.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
