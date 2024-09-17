@@ -2,6 +2,7 @@
 {
     public class PersonsConsultResponse
     {
+        public long Id { get; set; }
         public string FullName { get; set; }
         public DateTime Birthday { get; set; }
         public string MotherFullName { get; set; }

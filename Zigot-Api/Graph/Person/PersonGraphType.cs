@@ -7,6 +7,7 @@ namespace Zigot_Api.Graph.Person
     {
         public PersonGraphType()
         {
+            Field(x => x.Id, nullable: true);
             Field(x => x.FullName, nullable: false);
             Field(x => x.FatherFullName, nullable: true);
             Field(x => x.MotherFullName, nullable: true);

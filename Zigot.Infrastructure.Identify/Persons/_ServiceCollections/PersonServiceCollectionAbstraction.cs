@@ -11,6 +11,7 @@ namespace Zigot.Infrastructure.Identity.Persons._ServiceCollections
         public override void AddServices(IServiceCollection services, IConfiguration configuration)
         {
             services.AddTransient<IPersonRepository, PersonRepository>();
+            services.AddTransient<IPersonDocumentRepository, PersonDocumentRepository>();
         }
     }
 }

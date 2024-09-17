@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="13.0.1" />
+    <PackageReference Include="CommonValidation" Version="1.0.0" />
     <PackageReference Include="FluentValidation" Version="11.8.1" />
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.8.1" />
     <PackageReference Include="MediatR" Version="11.1.0" />
@@ -24,12 +25,7 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="Polly" Version="8.4.1" />
     <PackageReference Include="RabbitMQ.Client" Version="6.8.1" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="RabbitMq">
-      <HintPath>..\Package\RabbitMq.dll</HintPath>
-    </Reference>
+    <PackageReference Include="SKD-RabbitMQ" Version="1.0.0" />
   </ItemGroup>
 
 </Project>

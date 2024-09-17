@@ -16,10 +16,4 @@
     <ProjectReference Include="..\Zigot.Core.Domain\Zigot.Core.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Reference Include="RabbitMq">
-      <HintPath>..\Package\RabbitMq.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
 </Project>

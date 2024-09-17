@@ -36,10 +36,4 @@
     <ProjectReference Include="..\Zigot.Infrastructure.Persistence\Zigot.Infrastructure.Persistence.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Reference Include="RabbitMq">
-      <HintPath>..\Package\RabbitMq.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
 </Project>
