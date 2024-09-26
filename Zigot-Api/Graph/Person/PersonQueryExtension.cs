@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using Zigot.Core.Application.QueryStack.PersonQuery.ConsultQuery;
-using Zigot.Core.Domain.Abstractions;
+using Zigot.Core.Domain.Abstractions.Collection;
 
 namespace Zigot_Api.Graph.Person
 {

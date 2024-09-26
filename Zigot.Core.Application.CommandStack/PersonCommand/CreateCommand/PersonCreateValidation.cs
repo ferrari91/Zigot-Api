@@ -1,20 +1,18 @@
 ﻿using FluentValidation;
-using Zigot.Core.Domain.Contract.Persons.Repository;
+using Zigot.Core.Domain.Abstractions.Validation;
+using Zigot.Core.Domain.Abstractions.Works;
+using Zigot.Core.Domain.Contract.Persons;
 
 namespace Zigot.Core.Application.CommandStack.PersonCommand.CreateCommand
 {
-    public class PersonCreateValidation : AbstractValidator<PersonCreateRequest>
+    public class PersonCreateValidation : FluentValidationAbstraction<PersonCreateRequest>
     {
-        protected readonly IPersonRepository _personRepository;
-
-        public PersonCreateValidation(IPersonRepository personRepository)
+        public PersonCreateValidation(IUnityOfWork unityOfWork) : base(unityOfWork)
         {
-            _personRepository = personRepository;
-
             RuleFor(person => person.FullName)
-                .NotEmpty().WithMessage("Nome completo é obrigatório.")
-                .NotNull().WithMessage("Nome completo não pode ser nulo.")
-                .MustAsync(ExistPersonWithSameNameAsync).WithMessage("Já existe uma pessoa com o mesmo nome.");
+              .NotEmpty().WithMessage("Nome completo é obrigatório.")
+              .NotNull().WithMessage("Nome completo não pode ser nulo.")
+              .MustAsync(ExistPersonWithSameNameAsync).WithMessage("Já existe uma pessoa com o mesmo nome.");
 
             RuleFor(person => person.MotherFullName)
               .NotEmpty().WithMessage("Nome completo da mãe é obrigatório.")
@@ -38,13 +36,22 @@ namespace Zigot.Core.Application.CommandStack.PersonCommand.CreateCommand
 
             RuleFor(person => person.HasChildren)
                .NotNull().WithMessage("Deve ser especificado se a pessoa tem filhos.");
+
+            RuleFor(x => x.RG).NotEmpty().WithMessage("O campo RG é obrigatório.");
+
+            RuleFor(x => x.IssuingBody).NotEmpty().WithMessage("O campo Órgão Emissor é obrigatório.");
+
+            RuleFor(x => x.State).NotEmpty().WithMessage("O campo Estado é obrigatório.");
+
+            RuleFor(x => x.IssueDate).NotEmpty().WithMessage("O campo Data de Emissão é obrigatório.");
+
+            RuleFor(x => x.ElectoralTitle).NotEmpty().WithMessage("O campo Título Eleitoral é obrigatório.");
         }
 
         private async Task<bool> ExistPersonWithSameNameAsync(string fullName, CancellationToken cancellationToken)
         {
-            var person = await _personRepository.FindAsync(x => x.FullName.ToLower() == fullName.ToLower(), cancellationToken: cancellationToken);
+            var person = await _unityOfWork.GetRepository<Person>().FindAsync(x => x.FullName.ToLower() == fullName.ToLower(), cancellationToken: cancellationToken);
             return person == null;
         }
     }
-
 }

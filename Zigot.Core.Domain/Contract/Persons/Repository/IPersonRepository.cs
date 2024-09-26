@@ -1,8 +1,9 @@
-﻿using Zigot.Core.Domain.Abstractions;
+﻿using Zigot.Core.Domain.Abstractions.Repository;
+using Zigot.Core.Domain.Contract.Persons.DomainModel;
 
 namespace Zigot.Core.Domain.Contract.Persons.Repository
 {
-    public interface IPersonRepository : IBaseRepository<DomainModel.Person>
+    public interface IPersonRepository : IBaseRepository<Person>
     {
     }
 }

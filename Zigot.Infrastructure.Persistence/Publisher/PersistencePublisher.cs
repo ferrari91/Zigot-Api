@@ -9,6 +9,6 @@ namespace Zigot.Infrastructure.Persistence.Publisher
         {
         }
 
-        protected override string QueueName => throw new NotImplementedException();
+        protected override string QueueName => PersistenceConstants.PersistenceQueue;
     }
 }

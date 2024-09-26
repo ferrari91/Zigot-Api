@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System.Net;
+using Zigot.Core.Domain.Abstractions.Exceptions;
 using Zigot_Api.Wrapper._Error;
 using Zigot_Api.Wrapper.Exceptions;
 using Zigot_Api.Wrapper.Result;
@@ -31,6 +32,10 @@ namespace Zigot_Api.Middleware
                         response.StatusCode = (int)HttpStatusCode.BadRequest;
                         responseModel.Errors = e.Errors.Select(p => new Error(ErrorCode.ModelStateNotValid, p.ErrorMessage, p.PropertyName)).ToList();
                         break;
+                    case ExceptionAbstraction e:
+                        response.StatusCode = (int)HttpStatusCode.BadRequest;
+                        responseModel.Errors = new List<Error>() { new Error(ErrorCode.ModelStateNotValid, e.Message, e.Model)};
+                        break;
                     case KeyNotFoundException e:
                         response.StatusCode = (int)HttpStatusCode.NotFound;
                         break;
@@ -45,5 +50,3 @@ namespace Zigot_Api.Middleware
         }
     }
 }
-
-

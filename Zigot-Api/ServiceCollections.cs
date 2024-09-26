@@ -3,8 +3,10 @@ using GraphQL;
 using GraphQL.DataLoader;
 using GraphQL.Server;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using System.Reflection;
-using Zigot.Core.Domain.Abstractions;
+using Zigot.Core.Domain.Abstractions.Collection;
+using Zigot.Infrastructure.Identity.Context;
 using Zigot_Api.Behaviours;
 using Zigot_Api.Graph;
 using Zigot_Api.Graph.Person;
@@ -15,6 +17,10 @@ namespace Zigot_Api.DependencyInjection
     {
         public static void AddServicesFeatures(this IServiceCollection services, IConfiguration configuration)
         {
+            services.AddDbContext<ApplicationDbContext>(options =>
+                        options.UseNpgsql(configuration.GetConnectionString("PostgresqlConnection"),
+                        b => b.MigrationsAssembly("Zigot.Infrastructure.Identity")));
+
             services.MediatorAddServices(configuration);
             services.GraphQLAddService();
             services.AutoMapperAddService();

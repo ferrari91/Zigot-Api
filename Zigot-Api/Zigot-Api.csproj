@@ -32,7 +32,7 @@
     <ProjectReference Include="..\Zigot.Core.Application.CommandStack\Zigot.Core.Application.CommandStack.csproj" />
     <ProjectReference Include="..\Zigot.Core.Application.QueryStack\Zigot.Core.Application.QueryStack.csproj" />
     <ProjectReference Include="..\Zigot.Core.Domain\Zigot.Core.Domain.csproj" />
-    <ProjectReference Include="..\Zigot.Infrastructure.Identify\Zigot.Infrastructure.Identity.csproj" />
+    <ProjectReference Include="..\Zigot.Infrastructure.Identity\Zigot.Infrastructure.Identity.csproj" />
     <ProjectReference Include="..\Zigot.Infrastructure.Persistence\Zigot.Infrastructure.Persistence.csproj" />
   </ItemGroup>
 

@@ -15,7 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentatio
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zigot.Infrastructure.Persistence", "Zigot.Infrastructure.Persistence\Zigot.Infrastructure.Persistence.csproj", "{A0F2DD60-1559-48C0-9B79-A30FAC5B8ADC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zigot.Infrastructure.Identity", "Zigot.Infrastructure.Identify\Zigot.Infrastructure.Identity.csproj", "{170BF48A-E691-4358-9AD7-68596508DBF2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zigot.Infrastructure.Identity", "Zigot.Infrastructure.Identity\Zigot.Infrastructure.Identity.csproj", "{170BF48A-E691-4358-9AD7-68596508DBF2}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zigot.Core.Application.QueryStack", "Zigot.Core.Application.QueryStack\Zigot.Core.Application.QueryStack.csproj", "{CAE3BD89-99D0-41EC-A374-7EEA259FAD26}"
 EndProject
